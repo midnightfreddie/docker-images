@@ -1,3 +1,5 @@
+#FROM debian:sid
+# Using my own sid image which points to a local Squid proxy for updates
 FROM ruby_xpoo.net-sid
 
 MAINTAINER jim@midnightfreddie.com
