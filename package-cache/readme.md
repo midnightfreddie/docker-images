@@ -13,3 +13,4 @@ Currently squid.conf is set for my personal network, so if you use this, delete 
 - Check maximum disk size
 - Make disk cache a volume?
 - De-personalize acls
+- Log to stdout and stderr instead of files
