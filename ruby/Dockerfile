@@ -12,5 +12,5 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN update-alternatives --install /usr/bin/ruby ruby /usr/bin/ruby${RUBYVER} 50 \
-  && update-alternatives --install /usr/bin/irb irb /usr/bin/irb${RUBYVER} 50
+# Ruby executables have the version name after them; need to update alternatives so "ruby", "irb", etc. work
+RUN for x in erb gem irb rdoc ri ruby; do update-alternatives --install /usr/bin/$x $x /usr/bin/$x${RUBYVER} 50; done
