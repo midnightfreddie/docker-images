@@ -1,0 +1,6 @@
+Acquire {
+        Retries "0";
+        HTTP {
+                Proxy "http://192.168.1.73:3128/";
+        };
+};

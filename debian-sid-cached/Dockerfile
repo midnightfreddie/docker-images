@@ -1,16 +1,13 @@
-FROM ruby_xpoo.net-sid
+FROM debian:sid
 
 MAINTAINER jim@midnightfreddie.com
 
-ENV RUBYVER 2.3
+COPY 00proxy /etc/apt/apt.conf.d/00proxy
 
 RUN export DEBIAN_FRONTEND=noninteractive \
   && apt-get update \
   && apt-get -y upgrade \
   && apt-get -y install \
-    ruby${RUBYVER} \
+    less \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-RUN update-alternatives --install /usr/bin/ruby ruby /usr/bin/ruby${RUBYVER} 50 \
-  && update-alternatives --install /usr/bin/irb irb /usr/bin/irb${RUBYVER} 50
