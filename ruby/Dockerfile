@@ -11,6 +11,9 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   && apt-get -y upgrade \
   && apt-get -y install \
     ruby${RUBYVER} \
+    ruby${RUBYVER}-dev \
+    gcc \
+    make \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
