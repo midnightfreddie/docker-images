@@ -1,0 +1,4 @@
+xpoo.net-ubuntu:
+  build: ../ubuntu-lts-cached
+#ruby:
+#  build: .
