@@ -12,4 +12,6 @@ COPY squid.conf /etc/squid3/squid.conf
 
 RUN /usr/sbin/squid3 -YC -z
 
-CMD ['/usr/sbin/squid3', '-NYC']
+EXPOSE 3128
+
+CMD ["/usr/sbin/squid3", "-NYC"]
