@@ -15,7 +15,10 @@ RUN cd /tmp \
 
 EXPOSE 9200
 
-RUN for x in logs plugins config data; do mkdir -p /opt/elasticsearch-2.2.0/$x ; chown -R nobody:users /opt/elasticsearch-2.2.0/$x ; done
+RUN for x in plugins config ; do mkdir -p /opt/elasticsearch-2.2.0/$x ; chown -R nobody:users /opt/elasticsearch-2.2.0/$x ; done \
+  && for x in logs data; do mkdir -p /srv/es/$x ; chown -R nobody:users /srv/es/$x ; done
+
+COPY elasticsearch.yml /opt/elasticsearch-2.2.0/config/
 
 USER nobody
 
