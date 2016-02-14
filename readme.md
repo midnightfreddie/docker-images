@@ -6,6 +6,10 @@
 - ruby - Ruby 2.3 container with ruby2.3-dev, gcc and make
 - jekyll - Currently just ruby with `gem install jekyll` run. I thought I'd need more, but not so far
 
+## Known Issue
+
+- My docker-compose.yml files won't build unless I comment out the current-folder build and let the dependent image build first.
+
 ## TODO
 
 - Depersonalize. Currently things are hard-coded for me. Eventually I should change that.
