@@ -1,8 +1,11 @@
-#FROM debian:sid
-# Using my own sid image which points to a local Squid proxy for updates
-FROM ruby_xpoo.net-sid
+FROM debian:sid
 
 MAINTAINER jim@midnightfreddie.com
+
+ENV PKG_PROXY http://192.168.1.73:3128
+
+# Point apt at my proxy
+RUN echo Acquire { Retries \"0\"\; HTTP { Proxy \"${PKG_PROXY}/\"\; }\; }\; > /etc/apt/apt.conf.d/00proxy
 
 ENV RUBYVER 2.3
 
