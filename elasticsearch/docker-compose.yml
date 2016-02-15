@@ -1,5 +1,3 @@
-xpoo.net-sid:
-  build: ../debian-sid-cached
 elasticsearch:
   build: .
   ports:
