@@ -3,3 +3,7 @@ network:
 path:
   logs: /srv/es/logs
   data: /srv/es/data
+http:
+  cors:
+    allow-origin: "/.*/"
+    enabled: true
