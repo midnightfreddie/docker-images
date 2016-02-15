@@ -2,7 +2,7 @@
 
 - package-cache - A squid server optimized for apt packages and other large downloads for repeately building container images. The rest of the images point back to this cache.
 - elasticsearch - Elasticsearch with logs and data in a /srv/es volume, and with CORS enabled for all sites
-- jekyll - Currently just ruby with `gem install jekyll` run. I thought I'd need more, but not so far
+- jekyll - Based on my ruby image with additional Jekyll gems and libraries
 - nginx - Nginx with a volume in /srv/www and expecting a /srv/www/nginx.conf. Included nginx.conf logs to stdout and stdin.
 - ruby - Ruby 2.3 container with ruby2.3-dev, gcc and make
 - I was using these as the base for other containers, but it was too cumbersome, so I'm adding the cache configs directly to my other images
