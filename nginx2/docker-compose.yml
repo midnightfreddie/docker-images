@@ -1,0 +1,4 @@
+xpoo.net-sid:
+  build: ../debian-sid-cached
+nginx:
+  build: .
