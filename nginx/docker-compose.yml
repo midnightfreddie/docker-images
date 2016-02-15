@@ -1,4 +1,4 @@
-xpoo.net-sid:
-  build: ../debian-sid-cached
 nginx:
   build: .
+  ports:
+    - 80
