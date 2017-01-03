@@ -2,22 +2,21 @@ FROM centos:latest
 
 MAINTAINER jim@midnightfreddie.com
 
-# assumeyes=1 equivalent to calling yum with -y so when certbot updates it won't prompt
-RUN echo assumeyes=1 >> /etc/yum.conf \
+ENV XDG_DATA_HOME /opt/xdg-data-home
+
+RUN mkdir -p $XDG_DATA_HOME \
+	&& mkdir -p /etc/letsencrypt \
 	&& cd /root \
 	&& curl -O https://dl.eff.org/certbot-auto \
 	&& chmod a+x certbot-auto \
-	&& yum install \
-		augeas-libs \
-		dialog \
-		gcc \
-		libffi-devel \
-		openssl \
-		openssl-devel \
-		python-devel \
-		python-tools \
-		python-virtualenv \
-		redhat-rpm-config \
-	;
+	&& /root/certbot-auto --non-interactive --os-packages-only
+
+# To save the auth and cert data
+VOLUME /etc/letsencrypt
+
+# To share the Python virtual environment to prevent from rebuilding each run if --volumes-from used
+VOLUME /opt/xdg-data-home
+
+EXPOSE 80
 
 ENTRYPOINT ["/root/certbot-auto"]
