@@ -2,7 +2,7 @@ FROM centos:latest
 
 MAINTAINER jim@midnightfreddie.com
 
-RUN mkdir -p $XDG_DATA_HOME \
+RUN mkdir -p /opt/eff.org/certbot \
 	&& mkdir -p /etc/letsencrypt \
 	&& cd /root \
 	&& curl -O https://dl.eff.org/certbot-auto \
