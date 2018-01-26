@@ -2,8 +2,6 @@ FROM centos:latest
 
 MAINTAINER jim@midnightfreddie.com
 
-ENV XDG_DATA_HOME /opt/xdg-data-home
-
 RUN mkdir -p $XDG_DATA_HOME \
 	&& mkdir -p /etc/letsencrypt \
 	&& cd /root \
@@ -15,7 +13,7 @@ RUN mkdir -p $XDG_DATA_HOME \
 VOLUME /etc/letsencrypt
 
 # To share the Python virtual environment to prevent from rebuilding each run if --volumes-from used
-VOLUME /opt/xdg-data-home
+VOLUME /opt/eff.org/certbot/
 
 EXPOSE 80
 
